@@ -1,6 +1,6 @@
 # BPX Robot Model Assets
 
-This repository contains public robot description assets for the `BPX` platform.
+This repository contains open-source robot description assets for the `BPX` platform.
 
 It is intended for developers who need model files for visualization, simulation setup, and integration research.
 
@@ -48,4 +48,5 @@ The model references meshes from the local `mujoco/meshes/` directory.
 
 ## License And Usage
 
-Please follow the license and usage terms published with this repository before redistribution or commercial use of meshes, model files, or branded assets.
+This repository is released under the `BSD-3-Clause` license. See `LICENSE`
+for the full license text.
