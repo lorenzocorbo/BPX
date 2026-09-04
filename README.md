@@ -8,8 +8,10 @@ It is intended for developers who need model files for visualization, simulation
 
 - `bpx/urdf/bpx.urdf`: main URDF model entry
 - `bpx/meshes/`: mesh assets referenced by the URDF model
-- `mujoco/bpx.xml`: MuJoCo model entry
-- `mujoco/meshes/`: mesh assets referenced by the MuJoCo model
+- `mjcf/bpx.xml`: MuJoCo MJCF model entry
+- `mjcf/meshes/`: mesh assets referenced by the MJCF model
+- `usd/bpx.usd`: main USD model entry
+- `usd/configuration/`: USD model, physics, and sensor layers
 - `usd/config.yaml`: USD conversion configuration used for asset generation workflows
 
 ## Directory Layout
@@ -19,10 +21,12 @@ BPX/
 ├── bpx/
 │   ├── meshes/
 │   └── urdf/
-├── mujoco/
+├── mjcf/
 │   ├── meshes/
 │   └── bpx.xml
 └── usd/
+    ├── configuration/
+    ├── bpx.usd
     └── config.yaml
 ```
 
@@ -34,11 +38,17 @@ Use `bpx/urdf/bpx.urdf` as the primary entry when loading the robot in URDF-comp
 
 Make sure the relative mesh paths remain unchanged when copying or packaging the asset directory.
 
-### MuJoCo
+### MuJoCo (MJCF)
 
-Use `mujoco/bpx.xml` as the entry file for MuJoCo-based simulation and validation workflows.
+Use `mjcf/bpx.xml` as the entry file for MuJoCo-based simulation and validation workflows.
 
-The model references meshes from the local `mujoco/meshes/` directory.
+The model references meshes from the local `mjcf/meshes/` directory.
+
+### USD
+
+Use `usd/bpx.usd` as the primary entry when loading the robot in USD-compatible tools.
+
+Keep the `usd/configuration/` directory beside `bpx.usd`, because the main stage composes the model from those USD layers. The `usd/config.yaml` file records the URDF-to-USD conversion settings used to generate the published assets.
 
 ## Notes
 
